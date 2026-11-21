@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "supplylens-supplier-risk"
+version = "0.1.0"
+description = "Supplier risk monitoring: a transparent risk score with trend detection, a calibrated incident probability, watchlists and spend at risk."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Md Abdur Rauf" }]
+keywords = ["supplier risk", "procurement", "risk score", "watchlist", "machine learning", "supply chain"]
+dependencies = ["numpy>=1.24", "pandas>=2.0", "scikit-learn>=1.4", "joblib>=1.2"]
+
+[project.optional-dependencies]
+app = ["streamlit>=1.50", "plotly>=5.20"]
+dev = ["pytest>=7"]
+
+[project.scripts]
+supplier-risk = "supplier_risk.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
